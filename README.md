@@ -1,4 +1,3 @@
-
 <div align="center">
 <img src="./autostack.png" alt="AutoStack Logo" width="300" >
 </div>
@@ -54,7 +53,7 @@ mv autostack ~/.local/bin/
 Requires Go 1.22+
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/autostack.git
+git clone https://github.com/bait-py/autostack.git
 cd autostack
 go build -o autostack
 sudo mv autostack /usr/local/bin/
@@ -181,7 +180,7 @@ brew install docker-compose
 
 ## Project Structure
 
-```
+```bash
 autostack/
 ├── cmd/                 # CLI commands
 ├── internal/stack/      # Stack implementations
