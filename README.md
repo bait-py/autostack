@@ -2,9 +2,10 @@
 
 **Professional Docker stack generator for rapid development environment setup.**
 
-AutoStack is a command-line tool that generates production-ready Docker Compose configurations with interactive customization. Ideal for developers who need quick, reproducible development environments.
+<img src="./autostack.png" alt="AutoStack Logo" width="300">
 
 ## Overview
+AutoStack is a command-line tool that generates production-ready Docker Compose configurations with interactive customization. Ideal for developers who need quick, reproducible development environments.
 
 * Interactive configuration of environment variables and ports
 * Multiple pre-configured stacks
