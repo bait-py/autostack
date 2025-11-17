@@ -1,10 +1,14 @@
+
+<div align="center">
+<img src="./autostack.png" alt="AutoStack Logo" width="300" >
+</div>
+
 # AutoStack
 
-**Professional Docker stack generator for rapid development environment setup.**
-
-<img src="./autostack.png" alt="AutoStack Logo" width="300">
+Professional Docker stack generator for rapid development environment setup.
 
 ## Overview
+
 AutoStack is a command-line tool that generates production-ready Docker Compose configurations with interactive customization. Ideal for developers who need quick, reproducible development environments.
 
 * Interactive configuration of environment variables and ports
@@ -134,7 +138,7 @@ Follow prompts to customize environment variables and ports or press Enter to us
 
 ## Configuration Details
 
-### During stack creation, configurable options include:
+### During stack creation, configurable options include
 
 * Environment variables (e.g., database credentials)
 * Service ports for each container
