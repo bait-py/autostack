@@ -1,0 +1,33 @@
+# Binaries
+autostack
+autostack-*
+*.exe
+
+# Build artifacts
+dist/
+build/
+
+# Go
+*.o
+*.a
+*.so
+
+# Test stacks
+*-stack/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak
+*.old
+*.orig
+README.old.md

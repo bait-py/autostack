@@ -22,8 +22,18 @@ AutoStack is a command-line tool that generates production-ready Docker Compose 
 ### Binary Installation (Recommended)
 
 ```bash
-# Download and install latest version
-curl -L https://github.com/YOUR_USERNAME/autostack/releases/latest/download/autostack -o autostack
+# Linux (AMD64)
+curl -L https://github.com/bait-py/autostack/releases/latest/download/autostack-linux-amd64 -o autostack
+chmod +x autostack
+sudo mv autostack /usr/local/bin/
+
+# macOS (Intel)
+curl -L https://github.com/bait-py/autostack/releases/latest/download/autostack-darwin-amd64 -o autostack
+chmod +x autostack
+sudo mv autostack /usr/local/bin/
+
+# macOS (Apple Silicon)
+curl -L https://github.com/bait-py/autostack/releases/latest/download/autostack-darwin-arm64 -o autostack
 chmod +x autostack
 sudo mv autostack /usr/local/bin/
 ```
