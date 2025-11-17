@@ -1,0 +1,146 @@
+package stack
+
+/*
+ * PLANTILLA PARA CREAR NUEVOS STACKS
+ *
+ * Pasos para añadir un nuevo stack:
+ *
+ * 1. Copia este archivo y renómbralo según tu stack (ej: postgres.go, mongodb.go)
+ * 2. Reemplaza todos los "TEMPLATE" con el nombre de tu stack
+ * 3. Define las constantes con tus docker-compose.yml y archivos adicionales
+ * 4. Configura el StackConfig con los directorios y archivos necesarios
+ * 5. Añade el case en stack.go en la función Create()
+ * 6. Añade la descripción en la función ListStacks()
+ *
+ * Ejemplo de uso:
+ * case "postgres":
+ *     return createPostgres()
+ */
+
+// DockerComposeTEMPLATE contiene la plantilla de docker-compose
+const DockerComposeTEMPLATE = `version: '3.8'
+
+services:
+  # Tu servicio principal
+  main-service:
+    image: nombre-imagen:tag
+    container_name: template_service
+    ports:
+      - "PORT:PORT"
+    volumes:
+      - ./data:/path/en/contenedor
+    environment:
+      ENV_VAR: valor
+    networks:
+      - template-network
+    restart: unless-stopped
+
+networks:
+  template-network:
+    driver: bridge
+`
+
+// ReadmeTEMPLATE contiene la documentación del stack
+const ReadmeTEMPLATE = `# Stack TEMPLATE
+
+## Descripción
+
+Describe aquí qué hace tu stack y para qué sirve.
+
+## Estructura del proyecto
+
+- **data/**: Descripción del directorio
+
+## Servicios incluidos
+
+- **Servicio 1**: Puerto XXXX - Descripción
+- **Servicio 2**: Puerto YYYY - Descripción
+
+## Credenciales por defecto
+
+### Servicio
+- Usuario: admin
+- Password: password
+
+## Comandos útiles
+
+### Iniciar el stack
+` + "```bash" + `
+docker-compose up -d
+` + "```" + `
+
+### Detener el stack
+` + "```bash" + `
+docker-compose down
+` + "```" + `
+
+### Ver logs
+` + "```bash" + `
+docker-compose logs -f
+` + "```" + `
+
+## URLs de acceso
+
+- Servicio: http://localhost:PORT
+
+## Notas
+
+- Notas importantes sobre el stack
+`
+
+// GitignoreTEMPLATE contiene los archivos a ignorar
+const GitignoreTEMPLATE = `data/
+*.log
+`
+
+// createTEMPLATE crea un stack TEMPLATE
+func createTEMPLATE() error {
+	config := StackConfig{
+		Name:        "TEMPLATE",
+		Description: "Descripción breve de tu stack",
+		ProjectDir:  "template-stack",
+		AutoStart:   false, // Cambiar a true para auto-iniciar
+		Ports: map[string]string{
+			"Servicio 1": "8080",
+			"Servicio 2": "9090",
+		},
+		Dirs: []string{
+			"data",
+			// Añade más directorios según necesites
+		},
+		Files: map[string]string{
+			"docker-compose.yml": DockerComposeTEMPLATE,
+			"README.md":          ReadmeTEMPLATE,
+			".gitignore":         GitignoreTEMPLATE,
+			// Añade más archivos según necesites
+			// "config/app.conf": ConfigFile,
+		},
+	}
+
+	return GenerateStack(config)
+}
+
+/*
+ * EJEMPLOS DE STACKS QUE PODRÍAS CREAR:
+ *
+ * 1. PostgreSQL + pgAdmin
+ * 2. MongoDB + Mongo Express
+ * 3. Redis + RedisInsight
+ * 4. Nginx + Certbot (reverse proxy con SSL)
+ * 5. WordPress + MySQL
+ * 6. Elasticsearch + Kibana
+ * 7. RabbitMQ + Management UI
+ * 8. Jenkins CI/CD
+ * 9. GitLab + Runner
+ * 10. Nextcloud
+ * 11. Minio (S3-compatible storage)
+ * 12. Traefik (reverse proxy)
+ * 13. Vault (secrets management)
+ * 14. InfluxDB + Chronograf + Telegraf
+ * 15. Kafka + Zookeeper
+ *
+ * Ideas para combos populares:
+ * - MEAN stack (MongoDB, Express, Angular, Node)
+ * - ELK stack (Elasticsearch, Logstash, Kibana)
+ * - TICK stack (Telegraf, InfluxDB, Chronograf, Kapacitor)
+ */
